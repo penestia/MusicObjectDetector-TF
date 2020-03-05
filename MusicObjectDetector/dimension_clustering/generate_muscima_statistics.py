@@ -4,7 +4,7 @@ from glob import glob
 
 import pandas
 from PIL import Image
-from omrdatasettools.image_generators.MuscimaPlusPlusImageGenerator import MuscimaPlusPlusImageGenerator
+from omrdatasettools.image_generators.MuscimaPlusPlusSymbolImageGenerator import MuscimaPlusPlusSymbolImageGenerator
 from tqdm import tqdm
 
 
@@ -20,7 +20,7 @@ def create_statistics_for_full_images(glob_pattern_for_retrieving_muscima_images
     if os.path.exists(exported_relative_dimensions_file_path):
         os.remove(exported_relative_dimensions_file_path)
 
-    image_generator = MuscimaPlusPlusImageGenerator()
+    image_generator = MuscimaPlusPlusSymbolImageGenerator()
     all_xml_files = image_generator.get_all_xml_file_paths(muscima_pp_raw_data_directory)
 
     absolute_dimensions = []

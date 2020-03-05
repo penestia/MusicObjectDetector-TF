@@ -1,4 +1,4 @@
-$pathToGitRoot = "C:/Users/Alex/Repositories/MusicObjectDetector-TF"
+$pathToGitRoot = "/homes/es314/MusicObjectDetector-TF"
 $pathToSourceRoot = "$($pathToGitRoot)/MusicObjectDetector"
 $pathToTranscript = "$($pathToSourceRoot)/Transcripts"
 $pathToData = "$($pathToSourceRoot)/data"

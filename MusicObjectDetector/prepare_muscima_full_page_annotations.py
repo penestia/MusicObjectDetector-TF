@@ -3,7 +3,7 @@ import shutil
 from glob import glob
 
 from PIL import Image
-from omrdatasettools.image_generators.MuscimaPlusPlusImageGenerator import MuscimaPlusPlusImageGenerator
+from omrdatasettools.image_generators.MuscimaPlusPlusSymbolImageGenerator import MuscimaPlusPlusSymbolImageGenerator
 from tqdm import tqdm
 
 from muscima_annotation_generator import create_annotations_in_pascal_voc_format_from_crop_objects
@@ -15,7 +15,7 @@ def prepare_annotations(muscima_pp_dataset_directory: str,
     muscima_image_directory = os.path.join(muscima_pp_dataset_directory, "v1.0", "data", "images", "*.png")
     image_paths = glob(muscima_image_directory)
 
-    image_generator = MuscimaPlusPlusImageGenerator()
+    image_generator = MuscimaPlusPlusSymbolImageGenerator()
     xml_annotations_directory = os.path.join(muscima_pp_dataset_directory, "v1.0", "data", "cropobjects_manual")
     all_xml_files = [y for x in os.walk(xml_annotations_directory) for y in glob(os.path.join(x[0], '*.xml'))]
 

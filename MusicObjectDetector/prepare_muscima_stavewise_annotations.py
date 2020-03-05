@@ -7,7 +7,7 @@ from typing import Tuple, List, Dict
 import pandas
 from PIL import Image
 from muscima.cropobject import CropObject
-from omrdatasettools.image_generators.MuscimaPlusPlusImageGenerator import MuscimaPlusPlusImageGenerator
+from omrdatasettools.image_generators.MuscimaPlusPlusSymbolImageGenerator import MuscimaPlusPlusSymbolImageGenerator
 from tqdm import tqdm
 
 from muscima_annotation_generator import create_annotations_in_pascal_voc_format
@@ -116,7 +116,7 @@ def load_all_muscima_annotations(muscima_pp_dataset_directory) -> Dict[str, List
     :param muscima_pp_dataset_directory:
     :return: Returns a dictionary of annotations with the filename as key
     """
-    image_generator = MuscimaPlusPlusImageGenerator()
+    image_generator = MuscimaPlusPlusSymbolImageGenerator()
     raw_data_directory = os.path.join(muscima_pp_dataset_directory, "v1.0", "data", "cropobjects_withstaff")
     all_xml_files = [y for x in os.walk(raw_data_directory) for y in glob(os.path.join(x[0], '*.xml'))]
 

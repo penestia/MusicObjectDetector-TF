@@ -58,9 +58,9 @@ Run [`PrepareMuscimaFullPageDatasetForTensorflow.ps1`](MusicObjectDetector/Prepa
 # cd into MusicObjectDetector folder
 python download_muscima_dataset.py
 
-# For full-page training:
+# For stave wise training:
 python prepare_muscima_stavewise_annotations.py
-# For stavewise training:
+# For full page  training:
 python prepare_muscima_full_page_annotations.py
 
 # Split image directory according to predefined train/test split

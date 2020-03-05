@@ -20,7 +20,7 @@ import time
 
 import numpy as np
 import tensorflow as tf
-
+from tensorflow.python.platform import tf_logging as logging
 from object_detection.core import box_list
 from object_detection.core import box_list_ops
 from object_detection.core import keypoint_ops

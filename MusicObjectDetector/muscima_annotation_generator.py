@@ -13,11 +13,13 @@ def create_annotations_in_pascal_voc_format_from_crop_objects(annotations_folder
                                                               image_width: int,
                                                               image_height: int,
                                                               image_depth: int):
+    file_counter = 1 
     objects_appearing_in_image = []
     for detected_object in crop_objects_appearing_in_image:
         class_name = detected_object.clsname
         bounding_box = detected_object.bounding_box
-        objects_appearing_in_image.append(("", class_name, bounding_box))
+        objects_appearing_in_image.append(((file_name)[0] + ".xml", class_name, bounding_box))
+        file_counter = file_counter + 1
 
     create_annotations_in_pascal_voc_format(annotations_folder, file_name, objects_appearing_in_image,
                                             image_width, image_height, image_depth)
@@ -51,14 +53,14 @@ def create_annotations_in_pascal_voc_format(annotations_folder: str,
     height.text = str(image_height)
     depth = SubElement(size, "depth")
     depth.text = str(image_depth)
-
+    #print(file_name)
     # Write results to file
     for detected_object in objects_appearing_in_image:
         file_name = detected_object[0]
         class_name = detected_object[1]
         translated_bounding_box = detected_object[2]
         ymin, xmin, ymax, xmax = translated_bounding_box
-
+        #print(file_name)
         object = SubElement(annotation, "object")
         name = SubElement(object, "name")
         name.text = class_name
